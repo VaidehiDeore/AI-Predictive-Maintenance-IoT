@@ -1,0 +1,50 @@
+{
+  "dataset_rows": 3500,
+  "train_rows": 2625,
+  "test_rows": 875,
+  "failure_rate": 0.2514,
+  "accuracy": 0.7291,
+  "precision": 0.453,
+  "recall": 0.3727,
+  "f1_score": 0.409,
+  "roc_auc": 0.6966,
+  "confusion_matrix": [
+    [
+      556,
+      99
+    ],
+    [
+      138,
+      82
+    ]
+  ],
+  "classification_report": {
+    "No failure": {
+      "precision": 0.8011527377521613,
+      "recall": 0.8488549618320611,
+      "f1-score": 0.8243143068939955,
+      "support": 655.0
+    },
+    "Failure": {
+      "precision": 0.4530386740331492,
+      "recall": 0.37272727272727274,
+      "f1-score": 0.4089775561097257,
+      "support": 220.0
+    },
+    "accuracy": 0.7291428571428571,
+    "macro avg": {
+      "precision": 0.6270957058926553,
+      "recall": 0.610791117279667,
+      "f1-score": 0.6166459315018606,
+      "support": 875.0
+    },
+    "weighted avg": {
+      "precision": 0.7136269160170954,
+      "recall": 0.7291428571428571,
+      "f1-score": 0.719886780982522,
+      "support": 875.0
+    }
+  },
+  "model": "RandomForestClassifier",
+  "dataset_note": "Synthetic educational data; metrics are not evidence of real-world industrial performance."
+}

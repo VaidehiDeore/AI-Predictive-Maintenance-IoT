@@ -1,0 +1,21 @@
+# Python virtual environments
+venv/
+.venv/
+
+# Python cache and test cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Secrets and local configuration
+.env
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Generated temporary files
+*.log
+
+# Keep project data, trained models, and useful evaluation outputs
+# in GitHub unless a specific file is too large or unnecessary

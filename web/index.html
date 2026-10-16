@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07131d">
+  <title>ForgeSense | Predictive Maintenance</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <a class="brand" href="#"><span class="brand-mark">⌁</span><span><b>ForgeSense</b><small>Predictive intelligence</small></span></a>
+    <div class="side-label">WORKSPACE</div>
+    <nav>
+      <a class="nav-item active" href="#overview"><span>◫</span> Overview</a>
+      <a class="nav-item" href="#equipment"><span>▦</span> Equipment</a>
+      <a class="nav-item" href="#monitoring"><span>⌁</span> Live monitoring</a>
+      <a class="nav-item" href="#analytics"><span>▥</span> Analytics</a>
+      <a class="nav-item" href="#alerts"><span>♧</span> Maintenance alerts <i id="alert-count">0</i></a>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="mini-status"><span class="pulse"></span><div><b>Simulation mode</b><small>No hardware connected</small></div></div>
+      <div class="side-foot">BUILT FOR SMART INDUSTRY <span>v1.0.0</span></div>
+    </div>
+  </aside>
+  <main class="main">
+    <header class="topbar">
+      <div class="crumb"><span>Workspace</span><b>/</b> Overview</div>
+      <div class="top-actions"><div class="live-pill"><span class="pulse"></span> DEMO ENVIRONMENT</div><button class="avatar" title="Demo operator">VD</button></div>
+    </header>
+    <section class="welcome" id="overview">
+      <div><p class="eyebrow">INDUSTRIAL INTELLIGENCE PLATFORM</p><h1>Good afternoon, <em>Operator.</em></h1><p class="subhead">Your equipment health, at a glance. Detect risk earlier. Plan maintenance smarter.</p></div>
+      <div class="welcome-actions"><span class="date-chip" id="today">SYSTEM ONLINE</span><button class="btn primary" id="start-btn">▶ Start live simulation</button><button class="btn" id="stop-btn">Ⅱ Pause</button></div>
+    </section>
+    <div class="notice"><span class="notice-icon">✦</span><span><b>Virtual sensor network active</b><small>Readings are simulated for demonstration and are not connected to physical equipment.</small></span><span class="notice-right">MODEL <b>RANDOM FOREST</b></span></div>
+    <section class="kpi-grid">
+      <article class="kpi-card"><div class="kpi-top"><span>ASSETS MONITORED</span><span class="kpi-icon blue">▦</span></div><div class="kpi-value">04 <small>units</small></div><div class="kpi-foot"><span class="dot green"></span> All virtual devices registered</div></article>
+      <article class="kpi-card"><div class="kpi-top"><span>AVERAGE MACHINE HEALTH</span><span class="kpi-icon green">♡</span></div><div class="kpi-value" id="health-score">86<small>/100</small></div><div class="kpi-foot"><span class="dot green"></span><span id="health-note">Based on latest risk score</span></div></article>
+      <article class="kpi-card"><div class="kpi-top"><span>FAILURE RISK</span><span class="kpi-icon amber">⌁</span></div><div class="kpi-value" id="risk-score">18<small>%</small></div><div class="kpi-foot"><span class="dot amber"></span><span id="risk-note">Latest prediction probability</span></div></article>
+      <article class="kpi-card"><div class="kpi-top"><span>OPEN ALERTS</span><span class="kpi-icon red">⚑</span></div><div class="kpi-value" id="open-alerts">00</div><div class="kpi-foot"><span class="dot red"></span> Elevated risk needs review</div></article>
+    </section>
+    <section class="content-grid">
+      <article class="panel hero-panel" id="monitoring">
+        <div class="panel-head"><div><p class="eyebrow">LIVE TELEMETRY</p><h2>Machine condition monitor</h2></div><span class="status-tag"><span class="pulse"></span><span id="stream-status">STANDBY</span></span></div>
+        <div class="machine-scene">
+          <div class="scene-grid"></div><div class="machine-visual"><div class="machine-light"></div><div class="machine-top"></div><div class="machine-body"><div class="machine-vent"></div><div class="machine-center"><span>FS</span></div><div class="machine-bolts"></div></div><div class="machine-base"></div><div class="machine-foot f1"></div><div class="machine-foot f2"></div></div>
+          <div class="scene-copy"><span class="machine-id">ASSET · MTR-001</span><h3>Drive motor <span class="live-tag">LIVE</span></h3><p>Primary production line · Zone A-04</p><div class="scene-metrics"><span><small>UPTIME</small><b>99.2%</b></span><span><small>OPERATING MODE</small><b id="operating-mode">Standby</b></span></div></div>
+          <div class="scene-corner">⌁ SENSOR LINK <b>CONNECTED</b></div>
+        </div>
+        <div class="sensor-row">
+          <div class="sensor"><div class="sensor-label"><span class="sensor-symbol orange">♨</span><span>TEMPERATURE</span></div><div class="sensor-value" id="temp-val">58.4 <small>°C</small></div><div class="meter"><i id="temp-meter" style="width:58%"></i></div><small class="sensor-hint">Operating range: 35–85°C</small></div>
+          <div class="sensor"><div class="sensor-label"><span class="sensor-symbol purple">〰</span><span>VIBRATION</span></div><div class="sensor-value" id="vib-val">2.6 <small>mm/s</small></div><div class="meter purple-meter"><i id="vib-meter" style="width:26%"></i></div><small class="sensor-hint">Watch threshold: 4.5 mm/s</small></div>
+          <div class="sensor"><div class="sensor-label"><span class="sensor-symbol cyan">ϟ</span><span>MOTOR CURRENT</span></div><div class="sensor-value" id="current-val">8.2 <small>A</small></div><div class="meter cyan-meter"><i id="current-meter" style="width:45%"></i></div><small class="sensor-hint">Load signature</small></div>
+        </div>
+      </article>
+      <article class="panel risk-panel">
+        <div class="panel-head"><div><p class="eyebrow">PREDICTIVE MODEL</p><h2>Failure probability</h2></div><span class="subtle-tag">AI SCORE</span></div>
+        <div class="gauge-wrap"><svg class="gauge" viewBox="0 0 240 150" role="img" aria-label="Failure probability gauge"><path class="gauge-track" d="M 25 125 A 95 95 0 0 1 215 125"/><path id="gauge-fill" class="gauge-fill" d="M 25 125 A 95 95 0 0 1 215 125" pathLength="100" stroke-dasharray="18 100"/></svg><div class="gauge-number"><strong id="gauge-number">18</strong><span>% failure risk</span></div></div>
+        <div class="risk-level"><span id="risk-badge" class="risk-badge normal">LOW RISK</span><span class="confidence">MODEL CONFIDENCE <b id="confidence">82%</b></span></div>
+        <div class="risk-divider"></div>
+        <div class="recommendation"><span class="rec-icon">✦</span><div><b>Recommended next action</b><p id="recommendation">Continue routine monitoring. Review the next maintenance window.</p></div></div>
+        <button class="btn full" id="run-prediction">↻ Generate new prediction</button>
+      </article>
+    </section>
+    <section class="content-grid lower-grid" id="analytics">
+      <article class="panel chart-panel">
+        <div class="panel-head"><div><p class="eyebrow">SENSOR ANALYTICS</p><h2>Operating conditions</h2></div><span class="chart-legend"><i class="legend-temp"></i> Temperature <i class="legend-vib"></i> Vibration</span></div>
+        <div class="chart" id="trend-chart"><div class="chart-y"><span>100</span><span>75</span><span>50</span><span>25</span><span>0</span></div><svg id="trend-svg" viewBox="0 0 600 190" preserveAspectRatio="none"><g class="grid-lines"><path d="M0 10H600 M0 52H600 M0 94H600 M0 136H600 M0 178H600"/></g><path id="temp-line" class="line-temp" d="M0 110 L70 95 L140 102 L210 70 L280 82 L350 55 L420 75 L490 42 L560 60 L600 45"/><path id="vib-line" class="line-vib" d="M0 145 L70 140 L140 150 L210 120 L280 130 L350 115 L420 135 L490 110 L560 126 L600 118"/></svg><div class="chart-x"><span>-20m</span><span>-15m</span><span>-10m</span><span>-5m</span><span>NOW</span></div></div>
+        <div class="chart-foot"><span><i class="legend-temp"></i> Temperature trend</span><span><i class="legend-vib"></i> Vibration trend</span><span class="muted">Auto-refresh when simulation is running</span></div>
+      </article>
+      <article class="panel model-panel">
+        <div class="panel-head"><div><p class="eyebrow">MODEL PERFORMANCE</p><h2>Validation snapshot</h2></div><span class="subtle-tag">HELD-OUT DATA</span></div>
+        <div class="metric-list"><div><span>Accuracy</span><div class="metric-track"><i id="metric-accuracy" style="width:86%"></i></div><b id="metric-accuracy-text">86%</b></div><div><span>Precision</span><div class="metric-track"><i id="metric-precision" style="width:80%"></i></div><b id="metric-precision-text">80%</b></div><div><span>Recall</span><div class="metric-track"><i id="metric-recall" style="width:76%"></i></div><b id="metric-recall-text">76%</b></div><div><span>F1 score</span><div class="metric-track"><i id="metric-f1" style="width:78%"></i></div><b id="metric-f1-text">78%</b></div></div>
+        <div class="model-note"><span>ⓘ</span><p>Metrics are computed on a held-out test split of the generated dataset. Synthetic performance does not guarantee results on real industrial equipment.</p></div>
+      </article>
+    </section>
+    <section class="panel equipment-panel" id="equipment">
+      <div class="panel-head"><div><p class="eyebrow">FLEET OVERVIEW</p><h2>Equipment health</h2></div><span class="subtle-tag">4 VIRTUAL ASSETS</span></div>
+      <div class="table-wrap"><table><thead><tr><th>EQUIPMENT</th><th>TYPE</th><th>HEALTH</th><th>LAST READING</th><th>STATUS</th><th>RISK</th></tr></thead><tbody id="equipment-body"><tr><td><b>MTR-001</b><small>Drive motor</small></td><td>Rotating asset</td><td><div class="health-cell"><span class="mini-health"><i style="width:86%"></i></span>86%</div></td><td>Just now</td><td><span class="table-status good">● Healthy</span></td><td>14%</td></tr><tr><td><b>PMP-002</b><small>Coolant pump</small></td><td>Fluid system</td><td><div class="health-cell"><span class="mini-health"><i style="width:78%"></i></span>78%</div></td><td>Just now</td><td><span class="table-status watch">● Monitor</span></td><td>22%</td></tr><tr><td><b>CMP-003</b><small>Air compressor</small></td><td>Pressure system</td><td><div class="health-cell"><span class="mini-health"><i style="width:91%"></i></span>91%</div></td><td>Just now</td><td><span class="table-status good">● Healthy</span></td><td>9%</td></tr><tr><td><b>FAN-004</b><small>Ventilation fan</small></td><td>Rotating asset</td><td><div class="health-cell"><span class="mini-health"><i style="width:68%"></i></span>68%</div></td><td>Just now</td><td><span class="table-status warning">● Attention</span></td><td>32%</td></tr></tbody></table></div>
+    </section>
+    <section class="panel alerts-panel" id="alerts">
+      <div class="panel-head"><div><p class="eyebrow">ACTION CENTER</p><h2>Maintenance alerts</h2></div><span class="subtle-tag" id="alert-summary">NO NEW ALERTS</span></div>
+      <div id="alerts-list" class="alerts-list"><div class="empty-alert"><span>✓</span><div><b>All clear for now</b><small>Start the simulation to stream sensor readings and populate alerts.</small></div></div></div>
+    </section>
+    <footer><span>FORGESENSE <b>·</b> AI-POWERED PREDICTIVE MAINTENANCE</span><span>DEMO DATA ONLY · FOR EDUCATIONAL USE</span></footer>
+  </main>
+</div>
+<div class="toast" id="toast"></div>
+<script src="/app.js"></script>
+</body>
+</html>
